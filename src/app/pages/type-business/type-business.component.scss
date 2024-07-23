@@ -1,0 +1,98 @@
+section{
+  height: 100vh;
+  overflow: hidden;
+}
+.sm-card{
+  min-width: 150px;
+}
+.sliser-img {
+  position: relative;
+  background: url("../../../assets/Group 44.svg") center center no-repeat ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 400px;
+  height: 100vh;
+  .caption{
+    color: #fff;
+  }
+}
+.get-help {
+  display: flex;
+  justify-content: end;
+
+  h2 {
+    font-size: 14px;
+    color: #454c66;
+    font-weight: 400;
+    text-transform: capitalize;
+
+    b {
+      color: #635ca8;
+    }
+  }
+}
+.next {
+  background-color: #635CA8;
+  color: #FFFFFF;
+  width: max-content;
+
+}
+.nextButton {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.type {
+  h3 {
+    text-transform: capitalize;
+    margin-bottom: 7px;
+    font-weight: 400;
+    color: #454c66;
+    font-size: 14px;
+  }
+
+  .container-input-img {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    width: 100%;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .input-img {
+      border: 1px solid #6ac7bb;
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  border: 1px solid #635ca8;
+  img {
+    background-color: #6ac7bb;
+  }
+}
+
+.inactive {
+  background-color: transparent;
+}
+
+.back {
+  margin-bottom: 30px;
+  cursor: pointer;
+
+  i {
+    font-size: 20px;
+  }
+}

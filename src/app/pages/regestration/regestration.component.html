@@ -1,0 +1,176 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="slider col-lg-4 col-md-12 col-sm-12 p-0 me-auto">
+      <img src="assets/3.png " alt="" />
+      <div class="layer"></div>
+      <div class="note z-3">
+        <img src="assets/Group 52.svg" alt="note" class="quotes" />
+        <p class="noteP">
+          Lorem Ipsum is simply dummy text of the <br />
+          printing and typesetting industry
+        </p>
+        <h4>Salma Mohamed</h4>
+        <h6>Founder, Soliter Salon</h6>
+      </div>
+    </div>
+
+    <div class=" col-lg-7 col-md-12 col-sm-12">
+        <div class="container">
+        <div style="display: flex">
+          <P class="Rheader">Having troubles?
+            <span class="highLight"><a routerLink="">Get Help</a></span>
+          </P>
+        </div>
+
+        <div class="registerDv">
+          <div style="margin-bottom: 5%">
+            <h3 style="color: #454c66; font-weight: bolder">
+              Start your business now
+            </h3>
+            <p style="color: #454c66">
+              Creating your company is just a few steps away,<br />
+              Enter your email address to continue.
+            </p>
+          </div>
+          <div>
+            <form [formGroup]="registrationForm">
+              <div class="d-flex flex-wrap" style="justify-content: start">
+                <div class="col-12 col-md-6">
+                  <div class="row m-2">
+                    <div class="col-12">
+                      <label> First Name </label>
+                      <input [class.is-invalid]="firstName?.invalid && firstName?.touched" formControlName="firstName"
+                        type="text" class="form-control" placeholder="Enter your first name" />
+                      <div *ngIf="firstName?.invalid && firstName?.touched" class="smallText">
+                        <small *ngIf="firstName?.errors?.['required']" class="text-danger">first name is required
+                        </small>
+                        <small *ngIf="firstName?.errors?.['pattern']" class="text-danger">Please enter letters only
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="row m-2">
+                    <div class="col-12">
+                      <label> Last Name </label>
+                      <input [class.is-invalid]="lastName?.invalid && lastName?.touched" formControlName="lastName"
+                        type="text" class="form-control" placeholder="Enter your last name" />
+                      <div *ngIf="lastName?.invalid && lastName?.touched" class="smallText">
+                        <small *ngIf="lastName?.errors?.['required']" class="text-danger">last name is required
+                        </small>
+                        <small *ngIf="lastName?.errors?.['pattern']" class="text-danger">Please enter letters only
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="row m-2">
+                    <div class="col-12">
+                  <label> Email Address </label>
+                  <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email" type="text"
+                    class="form-control" placeholder="Enter your email" />
+                  <div *ngIf="email?.invalid && email?.touched" class="smallText">
+                    <small *ngIf="email?.errors?.['required']" class="text-danger">email is required
+                    </small>
+                    <small *ngIf="email?.errors?.['pattern'] || email?.errors?.['email'] " class="text-danger">Please enter a vaild email address
+                    </small>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="row m-2">
+                    <div class="col-12">
+                  <label> Phone Number </label>
+                  <input [class.is-invalid]="phone?.invalid && phone?.touched" formControlName="phone" appOnlyNumber  type="text"
+                    class="form-control" placeholder="Enter your phone" />
+                  <div *ngIf="phone?.invalid && phone?.touched" class="smallText">
+                    <small *ngIf="phone?.errors?.['required']" class="text-danger">phone number is required
+                    </small>
+                    <small *ngIf="phone?.errors?.['minlength']" class="text-danger">Please enter a valid phone number
+                    </small>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="row m-2">
+                    <div class="col-12">
+                  <label> Password </label>
+                  <div style="position: relative">
+                    <input [class.is-invalid]="password?.invalid && password?.touched" formControlName="password"
+                      [type]="hide ? 'password' : 'text'" class="form-control password"
+                      placeholder="Enter your first Password" />
+                    <!-- <span class="eyeIcon" (click)="toggleShow()"><i [class]="hide ? 'bi bi-eye-slash' : 'bi bi-eye'"></i></span> -->
+                    <div *ngIf="password?.invalid && password?.touched" class="smallText">
+                      <small *ngIf="password?.errors?.['required']" class="text-danger">Password is required
+                      </small>
+                      <small *ngIf="password?.errors?.['pattern']" class="text-danger">Please enter 8 digits of A,a,12,!
+                      </small>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between termsDv">
+                <div class="form-check mb-3">
+                  <input formControlName="checkbox" type="checkbox" class="form-check-input" />
+                  <label class="form-check-label">
+                    Agree to the <span class="terms">Privacy Policy</span> and
+                    <br />
+                    <span class="terms">Terms & Conditions</span>
+                  </label>
+                </div>
+                <div class="nxtButton">
+                  <button class="btn next nextButton" type="submit" [disabled]="registrationForm.invalid"  (click)="submiteForm(content)">
+                    <span>Next</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="header-img">
+      <img src="assets/Group 14.svg" />
+    </div>
+    <h3>Verification Code</h3>
+    <p class="p-header">
+      Please enter the verification code sent to your <br />
+      phone number ** 34
+    </p>
+    <form>
+      <div>
+        <ng-otp-input [config]="{ length: 4 } "></ng-otp-input>
+      </div>
+    </form>
+    <p class="timer">
+      The code will be sent again within <span> {{ counter$ | async }} </span> seconds
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-outline-dark" (click)="onVerify()">
+      VERIFY
+    </button>
+  </div>
+</ng-template>

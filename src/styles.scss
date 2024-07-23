@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@ng-select/ng-select/themes/default.theme.css";
+@import "../node_modules/@ng-select/ng-select/themes/material.theme.css";
+
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: #F5F6F9;
+}
+
+$error-color: #f3446c;
+
+.ng-select {
+  input:focus,
+  select:focus {
+    border: none !important  ;
+  }
+ .ng-select-container {
+    border: 1px solid #dee2e6 !important;
+  }
+  .ng-value{
+    padding: 0 6px !important;
+  }
+  .ng-value-container .ng-input>input{
+    min-height: 100% !important;
+  }
+}
+
+.errorclass {
+  color: $error-color;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@mixin inputFeild($margin, $height, $radus, $border, $width, $focus, $padding) {
+  margin-top: $margin; //5px
+  border: $border solid #d0d5de;
+  border-radius: $radus;
+  height: $height; //40px
+  padding: 0 $padding;
+  font-size: 13px;
+  width: $width;
+  &::placeholder {
+    font-size: 10px;
+    color: #B7BEC9;
+    text-align: left;
+  }
+  &:focus {
+    outline: none !important;
+    border: $focus solid #b4ace5;
+    background-color: transparent !important;
+  }
+  &:focus::placeholder {
+    display: none;
+  }
+}
+.selectedclass {
+  @include inputFeild(5px, 40px, 4px, 0px, 100%, 1px, 10px);
+}
+.ng-otp-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.otp-input {
+  width: 100px !important;
+  height: 55px !important;
+
+  @media (max-width: 767px) {
+    width: 80px !important;
+  }
+
+  border: solid 1px #d0d5de !important;
+  text-align: center;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #454c66 !important;
+}
+
+input:focus,
+select:focus {
+  border: 1px solid #635ca8 !important  ;
+}
+
+input::placeholder {
+  font-size: 12px;
+  color: #b7bec9;
+}
+
+.help-text {
+  background-color: #ccc;
+  color: #383838;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  display: none;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.help {
+  cursor: pointer;
+}
+
+.help:hover .help-text {
+  display: block !important;
+  opacity: 1;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}

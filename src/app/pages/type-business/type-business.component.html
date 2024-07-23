@@ -1,0 +1,133 @@
+<section>
+  <div class="row">
+    <div class="sliser-img p-5">
+      <div class="caption">
+        <img class="my-5" src="assets/logo.svg" />
+        <h4>
+          Few clicks away <br />
+          from creating your <br />
+          business
+        </h4>
+        <p>Start your business in minutes. save time and money</p>
+      </div>
+    </div>
+    <div class="col mb-4 mx-5 py-4 overflow-y-auto" style="max-height: 100vh;">
+      <div class="get-help">
+        <h2>Having troubles? <b> Get Help </b></h2>
+      </div>
+      <form class="register-form" id="register-form" [formGroup]="businessForm" (ngSubmit)="onSubmit()">
+        <div class="back" routerLink="">
+          <i class="bi bi-arrow-left"></i>
+        </div>
+        <h3>Choose the type of business</h3>
+        <p>
+          To get start tell us what type of Business you are going to <br />
+          incorporate and name
+        </p>
+        <div class="col-md-12 mb-3">
+          <div class="row">
+            <div class="col-12">
+              <label> Business Type</label>
+              <input [class.is-invalid]="f.type?.invalid && f.type?.touched" formControlName="type" type="text"
+                class="form-control" placeholder="Enter your type" />
+              <div *ngIf="f.type?.invalid && f.type?.touched" class="smallText">
+                <small *ngIf="f.type?.errors?.['required']" class="text-danger">type is required
+                </small>
+                <small *ngIf="f.type?.errors?.['pattern']" class="text-danger">Please enter letters only
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-3">
+          <div class="row type">
+            <label> Business Type</label>
+            <div class="col-md-3 sm-card" *ngFor="let type of types; let i = index">
+              <div class="form-input" style="cursor: pointer;" [ngClass]="(f.selected?.value || '').includes(type.name) ? 'active' : ''"  (click)="selelctItem(type.name)">
+                <div class="container-input-img">
+                  <img class="input-img" [src]="type.img" (click)="selelctItem(type.name)"
+                   />
+                  <span>{{ type.name }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="type">Governorate</label>
+
+              <ng-select class=" w-100" formControlName="government" >
+                <ng-option *ngFor="let gov of governments" [value]="gov.id">{{
+                  gov.name
+                  }}</ng-option>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-groupt">
+              <div class="form-group">
+                <label for="type">District</label>
+                <ng-select class="" formControlName="District">
+                  <ng-option *ngFor="let dis of districts" [value]="dis.id">{{
+                    dis.name
+                    }}</ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="type">How did you know us?</label>
+              <ng-select class="" formControlName="social" >
+                <ng-option *ngFor="let gov of socialMedia" [value]="gov.name"><img style="height: 1rem; width: 1rem; margin-right: 1rem"
+                    [src]="gov.icon" alt="" />{{ gov.name }}</ng-option>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-radio">
+              <label for="currently" class="radio-label mb-3" style="font-size: 14px">
+                <span>
+                  <div class="help-text">
+                    Do you have any system to run a your business other than
+                    Glamera?
+                  </div>
+                  Are you currently using system ?
+                  <i class="bi bi-question-circle help"></i>
+                </span>
+              </label>
+              <div class="d-flex gap-5">
+                <div class="form-radio-item">
+                  <input type="radio" [value]="1" formControlName="radioform" name="radioform" id="yes"/>
+                  <label for="yes">Yes</label>
+                  <span class="check"></span>
+                </div>
+                <div class="form-radio-item">
+                  <input type="radio" [value]="0" formControlName="radioform" name="radioform" id="no"/>
+                  <label for="no">No</label>
+                  <span class="check"></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="row footer-form">
+          <div class="w-100 d-flex justify-content-end">
+            <div class="btn-form">
+              <button class="btn next nextButton" type="submit" [disabled]="businessForm.invalid">
+                <span class="me-3">CREATE ACCOUNT</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
